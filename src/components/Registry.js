@@ -18,12 +18,14 @@ function Registry() {
       function handleNewPlanet (newPlanet) {
         setPlanetInfo([...planetInfo, newPlanet])
       }
-      const filteredPlanets = planetInfo.filter((planet) => (
-        planet.name.toLowerCase().includes(search.toLowerCase())
-        || planet.climate.toLowerCase().includes(search.toLowerCase())
-        || planet.terrain.toLowerCase().includes(search.toLowerCase())
-        || planet.population.toLowerCase().includes(search.toLowerCase())
-      ))
+      const filteredPlanets = planetInfo.filter((planet) => {
+        let allFields = planet.name + planet.climate + planet.terrain + planet.population
+        return allFields.toLowerCase().includes(search.toLowerCase())})
+        // ( planet.name.toLowerCase().includes(search.toLowerCase())
+        // || planet.climate.toLowerCase().includes(search.toLowerCase())
+        // || planet.terrain.toLowerCase().includes(search.toLowerCase())
+        // || planet.population.toLowerCase().includes(search.toLowerCase())
+    //   )
 
       function deletePlanet(id){
         const updatedPlanets = planetInfo.filter((planet1)=> planet1.id !== id)

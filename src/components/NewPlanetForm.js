@@ -6,7 +6,7 @@ function NewPlanetForm({handleNewPlanet}) {
         name: "",
         climate: "",
         terrain: "",
-        population: 0
+        population: ""
     })
 
     function handleChange (e) {
@@ -32,7 +32,16 @@ function NewPlanetForm({handleNewPlanet}) {
             body: JSON.stringify(planetData)
           })
           .then((res) => res.json())
-          .then((newPlanet) => handleNewPlanet(newPlanet))
+          .then((newPlanet) => {
+            handleNewPlanet(newPlanet)
+            setPlanetForm({
+                name: "",
+                climate: "",
+                terrain: "",
+                population: ""
+            })
+        })
+
     }
 
     return(
@@ -41,27 +50,31 @@ function NewPlanetForm({handleNewPlanet}) {
                 type="text" 
                 name="name" 
                 placeholder="Name"
+                value = {planetForm.name}
                 onChange={handleChange} 
             />
             <input 
                 type="text" 
                 name="climate" 
                 placeholder="Climate" 
+                value = {planetForm.climate}
                 onChange={handleChange} 
             />
             <input 
                 type="text" 
                 name="terrain" 
                 placeholder="Terrain"
+                value = {planetForm.terrain}
                 onChange={handleChange} 
             />
             <input 
                 type="text" 
                 name="population" 
                 placeholder="Population"
+                value = {planetForm.population}
                 onChange={handleChange}  
             />
-            <button type="submit">Add Planet</button>
+            <input type="submit" value="Add"/>
         </form>
     );
 }
