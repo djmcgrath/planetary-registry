@@ -1210,6 +1210,13 @@
       "climate": "cold",
       "terrain": "rocky",
       "population": "1"
+    },
+    {
+      "name": "Sams planet",
+      "climate": "nice ",
+      "terrain": "good ",
+      "population": "1",
+      "id": 75
     }
   ]
 }

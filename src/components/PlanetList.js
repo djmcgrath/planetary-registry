@@ -1,7 +1,7 @@
 import React from "react"
 import Planet from "./Planet"
 
-function PlanetList() {
+function PlanetList({planetInfo, deletePlanet}) {
     return(
         <table>
             <tbody>
@@ -11,7 +11,7 @@ function PlanetList() {
                     <th>Terrain</th>
                     <th>Population</th>
                 </tr>
-                {/** Render a list of <Planet> components here. */}
+                {planetInfo.map((planet) => <Planet key={planet.id} planet={planet} deletePlanet={deletePlanet}/>)}
             </tbody>
         </table>
     );
